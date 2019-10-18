@@ -1,5 +1,6 @@
 import argparse
 import gym
+import glfw
 import gym.spaces
 import torch.optim as optim
 from models import *
@@ -11,7 +12,7 @@ from loss import *
 from torch.utils.tensorboard import SummaryWriter
 
 torch.utils.backcompat.broadcast_warning.enabled = True
-torch.utils.backcpmpat.broadcast_warning.enabled = True
+torch.utils.backcompat.broadcast_warning.enabled = True
 
 torch.set_default_tensor_type('torch.DoubleTensor')
 use_cuda = torch.cuda.is_available()
@@ -38,7 +39,7 @@ parser.add_argument('--log-interval', type=int, default=1, metavar='N',
                     help='interval between training status logs (default: 10)')
 parser.add_argument('--fname', type=str, default='expert', metavar='F',
                     help='the file name to save trajectory')
-parser.add_argument('--num-epochs', type=int, default=500, metavar='N',
+parser.add_argument('--num-epochs', type=int, default=5000, metavar='N',
                     help='number of epochs to train an expert')
 parser.add_argument('--hidden-dim', type=int, default=100, metavar='H',
                     help='the size of hidden layers')
@@ -55,7 +56,7 @@ parser.add_argument('--vf-iters', type=int, default=30, metavar='V',
 parser.add_argument('--vf-lr', type=float, default=3e-4, metavar='V',
                     help='learning rate of value network')
 parser.add_argument('--noise', type=float, default=0.0, metavar='N')
-parser.add_argument('--eval-epochs', type=int, default=3, metavar='E',
+parser.add_argument('--eval-epochs', type=int, default=10, metavar='E',
                     help='epochs to evaluate model')
 parser.add_argument('--prior', type=float, default=0.2,
                     help='ratio of confidence data')
@@ -65,8 +66,12 @@ parser.add_argument('--ifolder', type=str, default='demonstrations')
 parser.add_argument('--use-cgan', type=bool, default=False)
 parser.add_argument('--norm-sample-dim', type=int, default=100)
 parser.add_argument('--cgan-batch-size', type=int, default=128)
-parser.add_argument('--use-cot', type=bool, default=True)
+parser.add_argument('--use-cot', action='store_true', help='use cooperative training of gail')
 parser.add_argument('--sup-iters-per-episode', type=int, default=5)
+parser.add_argument('--visualize', action='store_true', help='visualize the environment ')
+parser.add_argument('--save-every', type=int, default=10000)
+parser.add_argument('--is-eval', action='store_true')
+
 args = parser.parse_args()
 
 env = gym.make(args.env)
@@ -85,7 +90,7 @@ disc_criterion = nn.BCEWithLogitsLoss()
 sup_disc_criterion = nn.MSELoss()
 value_criterion = nn.MSELoss()
 disc_optimizer = optim.Adam(discriminator.parameters(), args.lr)
-value_optimizer = optim.Adam(value_net.parameters(), args.vf_fr)
+value_optimizer = optim.Adam(value_net.parameters(), args.vf_lr)
 tb_writer = SummaryWriter()
 
 
@@ -104,7 +109,7 @@ def sup_train_discriminator_one_step(state_action_batch, true_conf_batch):
     sup_disc_loss.backward()
     disc_optimizer.step()
 
-    return sup_disc_loss.data[0]
+    return sup_disc_loss.item()
 
 
 def ce_train_discriminator_one_step(gen_state_action_batch, expert_state_action_batch, expert_pvalue):
@@ -121,7 +126,7 @@ def ce_train_discriminator_one_step(gen_state_action_batch, expert_state_action_
                     disc_criterion(real, torch.zeros(expert_state_action_batch.size(0), 1).to(device))
     disc_loss.backward()
     disc_optimizer.step()
-    return disc_loss.data[0]
+    return disc_loss.item()
 
 
 def predict_unlabeled_conf(expert_traj, true_expert_conf):
@@ -185,6 +190,7 @@ def update_params(batch):
     trpo_step(policy_net, get_loss, get_kl, args.max_kl, args.damping)
 
 
+
 def expert_reward(states, actions):
     states = np.concatenate(states)
     actions = np.concatenate(actions)
@@ -235,11 +241,13 @@ if args.noconf:
     fname = 'nc'
 
 writer = Writer(args.env, args.seed, args.weight, 'mixture', args.prior, args.traj_size, folder=args.ofolder, fname=fname, noise=args.noise)
-if not args.only and args.use_cot and args.weight:
+if not args.only and not args.is_eval and args.use_cot and args.weight:
     labeled_traj = torch.Tensor(expert_traj[:num_label, :]).to(device)
     unlabeled_traj = torch.Tensor(expert_traj[num_label:, :]).to(device)
     label = torch.Tensor(expert_conf[:num_label, :]).to(device)
-    batch = min(128, labeled_traj.shape[0])
+    batch_size = min(128, labeled_traj.shape[0])
+    glfw.init()
+    print('start training')
     for episode in range(args.num_epochs):
         memory = Memory()
         num_steps = 0
@@ -251,13 +259,14 @@ if not args.only and args.use_cot and args.weight:
         mem_mask = []
         mem_next = []
         sup_losses = []
+        label = torch.Tensor(expert_conf[:num_label, :]).to(device)
         for i in range(args.sup_iters_per_episode):
-            idx = np.random.choice(labeled_traj.shape[0], batch)
+            idx = np.random.choice(labeled_traj.shape[0], batch_size)
             labeled_state_action_batch = labeled_traj[idx, :]
             true_conf_batch = label[idx, :]
             sup_loss = sup_train_discriminator_one_step(labeled_state_action_batch, true_conf_batch)
             sup_losses.append(sup_loss)
-        expert_conf = predict_unlabeled_conf(expert_traj, expert_conf)
+        expert_conf = predict_unlabeled_conf(expert_traj, label)
         tb_writer.add_scalar("Supervised Loss", np.mean(np.array(sup_losses)), episode)
         while num_steps < args.batch_size:
             state = env.reset()
@@ -268,6 +277,8 @@ if not args.only and args.use_cot and args.weight:
                 states.append(np.array([state]))
                 actions.append(np.array([action]))
                 next_state, true_reward, done, _ = env.step(action)
+                if args.visualize:
+                    env.render(mode='human')
                 reward_sum += true_reward
                 mask = 1
                 if done:
@@ -299,6 +310,27 @@ if not args.only and args.use_cot and args.weight:
         state_action = torch.cat((states, actions), 1).to(device)
         ce_loss = ce_train_discriminator_one_step(state_action, expert_state_action, expert_pvalue)
         tb_writer.add_scalar("Disc CEloss", ce_loss, episode)
+        if episode % args.save_every == 0:
+            torch.save(policy_net.state_dict(), "./saved_model/policy_net_{}".format(episode))
         if episode % args.log_interval == 0:
-            print('Episode {}\tAverage reward: {:.2f}\tMax reward: {:.2f}\tLoss (disc): {:.2f}'.format(episode, np.mean(reward_batch), max(reward_batch), ce_loss.item()))
+            print('Episode {}\tAverage reward: {:.2f}\tMax reward: {:.2f}\tLoss (disc): {:.2f}'.format(episode, np.mean(reward_batch), max(reward_batch), ce_loss))
+
+elif args.is_eval:
+        print('start evaluate!')
+        policy_net.load_state_dict(torch.load("saved_model/policy_net_40000"))
+        policy_net.eval()
+        count = 0
+        while count < args.eval_epochs:
+            state = env.reset()
+            reward_sum = 0
+            for t in range(10000):
+                action = select_action(state)
+                action = action.data[0].numpy()
+                next_state, true_reward, done, _ = env.step(action)
+                if args.visualize:
+                    env.render(mode='human')
+                reward_sum += true_reward
+                if done:
+                    break
+                state = next_state
 
