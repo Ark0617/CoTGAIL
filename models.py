@@ -116,7 +116,7 @@ class ConfGenerator(nn.Module):
 class ConfDiscriminator(nn.Module):
     def __init__(self, num_inputs, hidden_size):
         super().__init__()
-        self.fc1 = nn.Linear(num_inputs+1, hidden_size)
+        self.fc1 = nn.Linear(num_inputs, hidden_size)
         self.fc2 = nn.Linear(hidden_size, hidden_size)
         self.fc3 = nn.Linear(hidden_size, 1)
 

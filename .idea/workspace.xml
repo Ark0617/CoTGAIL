@@ -2,10 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c6bd855-2f53-476a-91cb-3b1e5e20b4fd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Imitation-Learning-from-Imperfect-Demonstration.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Imitation-Learning-from-Imperfect-Demonstration.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cGANWIL.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logger.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/monitor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mpi_util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/plot_util.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/visualize_result.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CoTGAIL.py" beforeDir="false" afterPath="$PROJECT_DIR$/CoTGAIL.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/Oct15_22-14-41_pc-3w53-0/events.out.tfevents.1571138081.pc-3w53-0.13205.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/Oct15_22-37-54_pc-3w53-0/events.out.tfevents.1571139474.pc-3w53-0.14448.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/Oct15_22-40-36_pc-3w53-0/events.out.tfevents.1571139636.pc-3w53-0.14674.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/Oct15_22-48-54_pc-3w53-0/events.out.tfevents.1571140134.pc-3w53-0.15072.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/Oct15_23-02-59_pc-3w53-0/events.out.tfevents.1571140979.pc-3w53-0.15911.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/Oct15_23-10-34_pc-3w53-0/events.out.tfevents.1571141434.pc-3w53-0.16781.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/Oct15_23-17-28_pc-3w53-0/events.out.tfevents.1571141848.pc-3w53-0.17707.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/Oct15_23-18-53_pc-3w53-0/events.out.tfevents.1571141933.pc-3w53-0.17924.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/Oct18_23-07-02_pc-3w53-0/events.out.tfevents.1571400422.pc-3w53-0.3466.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/Oct18_23-07-36_pc-3w53-0/events.out.tfevents.1571400456.pc-3w53-0.3507.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/runs/Oct18_23-09-58_pc-3w53-0/events.out.tfevents.1571400598.pc-3w53-0.3609.0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/saved_model/policy_net_0" beforeDir="false" afterPath="$PROJECT_DIR$/saved_model/policy_net_0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,12 +31,48 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/2IWIL.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="71" column="58" selection-start-line="70" selection-end-line="71" selection-end-column="58" />
+            <state relative-caret-position="280">
+              <caret line="292" selection-start-line="292" selection-end-line="292" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cGANWIL.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="473">
+              <caret line="305" selection-start-line="305" selection-end-line="305" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/visualize_result.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="491">
+              <caret line="105" column="132" selection-start-line="105" selection-start-column="132" selection-end-line="105" selection-end-column="132" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -28,12 +81,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/CoTGAIL.py">
+        <entry file="file://$PROJECT_DIR$/plot_util.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-349">
-              <caret line="72" column="53" lean-forward="true" selection-start-line="72" selection-start-column="53" selection-end-line="72" selection-end-column="53" />
+            <state relative-caret-position="356">
+              <caret line="312" column="33" selection-start-line="312" selection-start-column="33" selection-end-line="312" selection-end-column="33" />
               <folding>
-                <element signature="e#0#15#0" expanded="true" />
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/logger.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="356">
+              <caret line="269" selection-start-line="269" selection-end-line="269" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -52,12 +117,25 @@
     <findStrings>
       <find>value_criterion</find>
       <find>CULoss</find>
-      <find>traj_size</find>
       <find>Generator</find>
-      <find>reward_batch</find>
       <find>normal_log_density</find>
       <find>expert_reward</find>
       <find>batch</find>
+      <find>conf_D_train_step</find>
+      <find>traj-size</find>
+      <find>traj</find>
+      <find>reward_batch</find>
+      <find>batch_</find>
+      <find>.csv</find>
+      <find>render</find>
+      <find>traj_size</find>
+      <find>monitor</find>
+      <find>read_tb</find>
+      <find>mpi_util</find>
+      <find>evaluate</find>
+      <find>OPEN</find>
+      <find>writer</find>
+      <find>xy_fn</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -68,19 +146,27 @@
       <list>
         <option value="$PROJECT_DIR$/2IWIL.py" />
         <option value="$PROJECT_DIR$/running_state.py" />
-        <option value="$PROJECT_DIR$/models.py" />
         <option value="$PROJECT_DIR$/loss.py" />
-        <option value="$PROJECT_DIR$/CGWIL.py" />
         <option value="$PROJECT_DIR$/IC_GAIL.py" />
         <option value="$PROJECT_DIR$/CoTGAIL.py" />
+        <option value="$PROJECT_DIR$/CGWIL.py" />
+        <option value="$PROJECT_DIR$/models.py" />
+        <option value="$PROJECT_DIR$/monitor.py" />
+        <option value="$PROJECT_DIR$/plot_func.py" />
+        <option value="$PROJECT_DIR$/mpi_util.py" />
+        <option value="$PROJECT_DIR$/logger.py" />
+        <option value="$PROJECT_DIR$/utils.py" />
+        <option value="$PROJECT_DIR$/cGANWIL.py" />
+        <option value="$PROJECT_DIR$/visualize_result.py" />
+        <option value="$PROJECT_DIR$/plot_util.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="584" />
-    <option name="y" value="88" />
+    <option name="x" value="263" />
+    <option name="y" value="27" />
     <option name="width" value="1657" />
-    <option name="height" value="1041" />
+    <option name="height" value="1029" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -100,11 +186,6 @@
               <item name="CoTGAIL" type="462c0819:PsiDirectoryNode" />
               <item name="log" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="CoTGAIL" type="b2602c69:ProjectViewProjectNode" />
-              <item name="CoTGAIL" type="462c0819:PsiDirectoryNode" />
-              <item name="saved_model" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -113,7 +194,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mediator_IL/visualize_result.py" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -128,7 +209,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.CoTGAIL">
+  <component name="RunManager" selected="Python.visualize_result">
     <configuration name="CoTGAIL" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Imitation-Learning-from-Imperfect-Demonstration" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -171,12 +252,58 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="cGANWIL" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Imitation-Learning-from-Imperfect-Demonstration" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cGANWIL.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="visualize_result" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Imitation-Learning-from-Imperfect-Demonstration" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/visualize_result.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Python.CoTGAIL" />
       <item itemvalue="Python.Unnamed" />
+      <item itemvalue="Python.CoTGAIL" />
+      <item itemvalue="Python.cGANWIL" />
+      <item itemvalue="Python.visualize_result" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.visualize_result" />
+        <item itemvalue="Python.cGANWIL" />
         <item itemvalue="Python.CoTGAIL" />
       </list>
     </recent_temporary>
@@ -195,15 +322,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="787" y="39" width="1657" height="1041" extended-state="0" />
-    <editor active="true" />
+    <frame x="263" y="27" width="1657" height="1029" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.32007343" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29069766" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.21864595" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30171427" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -229,36 +355,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CGWIL.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1215">
-          <caret line="90" column="50" selection-start-line="90" selection-start-column="50" selection-end-line="90" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/loss.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" selection-start-line="9" selection-start-column="33" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/trpo.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -305,9 +401,100 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/loss.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="32" column="51" selection-start-line="32" selection-start-column="51" selection-end-line="32" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="744">
+          <caret line="125" column="34" selection-start-line="125" selection-start-column="34" selection-end-line="125" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CGWIL.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2214">
+          <caret line="292" selection-start-line="292" selection-end-line="292" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/monitor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="126" column="16" selection-start-line="126" selection-start-column="4" selection-end-line="126" selection-end-column="16" />
+          <folding>
+            <element signature="e#60#88#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CoTGAIL.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="34" column="3" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/Hopper-v2_1111_weight_mixture_0.2000_600.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="21" lean-forward="true" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        </state>
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_func.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="55" lean-forward="true" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mpi_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="269" selection-start-line="269" selection-end-line="269" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="491">
+          <caret line="105" column="132" selection-start-line="105" selection-start-column="132" selection-end-line="105" selection-end-column="132" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
@@ -316,20 +503,62 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/2IWIL.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="71" column="58" selection-start-line="70" selection-end-line="71" selection-end-column="58" />
+        <state relative-caret-position="280">
+          <caret line="292" selection-start-line="292" selection-end-line="292" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CoTGAIL.py">
+    <entry file="file://$PROJECT_DIR$/log/Hopper-v2__weight_mixture_0.2000_600-1111/progress.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cGANWIL.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-349">
-          <caret line="72" column="53" lean-forward="true" selection-start-line="72" selection-start-column="53" selection-end-line="72" selection-end-column="53" />
+        <state relative-caret-position="473">
+          <caret line="305" selection-start-line="305" selection-end-line="305" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../mediator_IL/visualize_result.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="24" lean-forward="true" selection-end-line="9" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/visualize_result.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/Hopper-v2__weight_mixture_0.2000_600_True-1112/progress.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plot_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="312" column="33" selection-start-line="312" selection-start-column="33" selection-end-line="312" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
