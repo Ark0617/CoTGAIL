@@ -10,6 +10,7 @@ from utils import *
 from loss import *
 from torch.utils.tensorboard import SummaryWriter
 from monitor import Monitor
+import os.path as osp
 
 torch.utils.backcompat.broadcast_warning.enabled = True
 torch.utils.backcompat.keepdim_warning.enabled = True
@@ -72,9 +73,25 @@ parser.add_argument('--save-every', type=int, default=1000)
 parser.add_argument('--is-eval', action='store_true')
 
 args = parser.parse_args()
-
 env = gym.make(args.env)
+log_folder = 'log/'
+log_env = args.env
+log_pfolder = osp.join(log_folder, log_env)
+til = ""
+if args.use_cgan:
+    til = 'cgan_classifier'
+else:
+    til = 'PU_classifier'
+log_subfolder = '{}-{}'.format(til, args.seed)
+#log_subfolder = '{}_{}_{}_{}_{}_{}-{}'.format(args.env, args.weight, 'mixture', args.prior, args.traj_size, args.use_cgan, args.seed)
+log_path = osp.join(log_pfolder, log_subfolder)
+log_file_path = osp.join(log_path, 'monitor')
 
+if not osp.exists(log_path):
+    os.makedirs(log_path)
+# args.env, args.seed, args.weight, 'mixture', args.prior, args.traj_size, args.use_cgan, folder=args.ofolder, fname=fname,
+#                 noise=args.noise
+env = Monitor(env, log_file_path)
 ob_first_dim = env.observation_space.shape[0]
 ac_first_dim = env.action_space.shape[0]
 
@@ -268,7 +285,7 @@ elif not args.only and args.weight and args.use_cgan and not args.is_eval:
     cgan_criterion = nn.BCELoss()
     labeled_batch_size = min(args.cgan_batch_size, labeled_traj.shape[0])
     unlabeled_batch_size = int(labeled_batch_size / labeled_traj.shape[0] * unlabeled_traj.shape[0])
-    iters = 25000
+    iters = 250
     print("====================Start cGAN Training======================")
     for epoch in range(iters):
         print('Startinhg CGAN epoch {}...'.format(epoch))

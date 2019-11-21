@@ -103,9 +103,14 @@ class NewWriter(object):
         else:
             nlabel = '_noise{:.2f}'.format(noise)
 
-        self.subfolder = '{}_{}_{}{}_{}{}{}{}_{}-{}'.format(env, label, epoch, plabel, traj_size, pblabel, fname, nlabel, use_cgan, seed)
         self.folder = folder
-        self.log_folder = os.path.join(self.folder, self.subfolder)
+        self.pfolder = os.path.join(self.folder, env)
+        if use_cgan:
+            til = 'cgan_classifier'
+        else:
+            til = 'PU_classifier'
+        self.subfolder = '{}-{}'.format(til, seed)
+        self.log_folder = os.path.join(self.pfolder, self.subfolder)
         self.fname = "progress.csv"
         if not os.path.isdir(self.log_folder):
             os.makedirs(self.log_folder)

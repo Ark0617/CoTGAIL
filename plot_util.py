@@ -310,7 +310,6 @@ def plot_results(
         ax = axarr[idx_row][idx_col]
         for result in sresults:
             group = group_fn(result)
-            print(result.progress)
             g2c[group] += 1
             x, y = xy_fn(result)
             if x is None: x = np.arange(len(y))
@@ -330,10 +329,12 @@ def plot_results(
                 color = COLORS[groups.index(group) % len(COLORS)]
                 origxs = [xy[0] for xy in xys]
                 minxlen = min(map(len, origxs))
+                # for x in origxs:
+                #     print(x[0])
                 def allequal(qs):
                     return all((q==qs[0]).all() for q in qs[1:])
                 if resample:
-                    low  = max(x[0] for x in origxs)
+                    low = max(x[0] for x in origxs)
                     high = min(x[-1] for x in origxs)
                     usex = np.linspace(low, high, resample)
                     ys = []
